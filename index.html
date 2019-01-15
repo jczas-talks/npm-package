@@ -44,18 +44,58 @@
         <section>
             <h1>Travis CI <img class="logo64" src="img/TravisCI-Mascot-1.png"/></h1>
             <ul>
-                <li>Add the <i>.travis.yml</i> file to the repository
+                <li>Sign in to <a href="https://travis-ci.org">Travis CI</a> and
+                    <a href="https://travis-ci.org/organizations/nsc-c-park/repositories">flick your repo’s switch
+                        on</a>
+                </li>
+                <li>Add a <i>.travis.yml</i> file to the repository
                     <pre><code>
 language: node_js
 node_js:
-  - stable
+- stable
                         </code></pre>
-                </li>
-                <li>Sign in to <a href="https://travis-ci.org/">Travis CI</a> with GitHub and activate the build for the
-                    <a href="https://travis-ci.org/organizations/nsc-c-park/repositories">repository</a>
                 </li>
                 <li>Add the badge to the README file <img class="logo64" src="img/build-passing.svg"/></li>
             </ul>
+        </section>
+        <section>
+            <h1><img class="logo64" src="img/coveralls_logo.png"/> [1/2]</h1>
+            <ul>
+                <li>Sign in to <a href="https://coveralls.io">Coveralls</a> and add your
+                    <a href="https://coveralls.io/repos/new">repository</a>
+                </li>
+                <li>Add to the <i>.travis.yml</i> file
+                    <pre><code>
+after_success:
+- npm run coveralls
+                    </code></pre>
+                </li>
+                <li>Add new devDependencies
+                    <pre><code>
+npm install --save-dev coveralls mocha-lcov-reporter
+                    </code></pre>
+                </li>
+            </ul>
+        </section>
+        <section>
+            <h1><img class="logo64" src="img/coveralls_logo.png"/> [2/2]</h1>
+            <ul>
+                <li>Add to the <i>package.json</i> file
+                    <pre><code>
+"coverage": "istanbul cover _mocha",
+"coveralls": "npm run coverage -- --report lcovonly \
+             && cat ./coverage/lcov.info | coveralls"
+                    </code></pre>
+                </li>
+                <li>Add the badge to the README file <img class="logo64" src="img/coverage-100.svg"/></li>
+            </ul>
+        </section>
+
+
+
+        <section>
+            <h1>Literature</h1>
+            http://dsernst.com/2015/09/02/node-mocha-travis-istanbul-coveralls-unit-tests-coverage-for-your-open-source-project/
         </section>
     </div>
 </div>
