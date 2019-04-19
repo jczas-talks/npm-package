@@ -1,140 +1,157 @@
 <!doctype html>
 <html>
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
-    <title>NPM package</title>
+  <title>NPM package</title>
 
 
-    <link rel="stylesheet" href="css/reveal.css">
-    <link rel="stylesheet" href="css/theme/black.css">
-    <link rel="stylesheet" href="css/custom.css">
+  <link rel="stylesheet" href="css/reveal.css">
+  <link rel="stylesheet" href="css/theme/black.css">
+  <link rel="stylesheet" href="css/custom.css">
 
-    <!-- Theme used for syntax highlighting of code -->
-    <link rel="stylesheet" href="lib/css/zenburn.css">
+  <!-- Theme used for syntax highlighting of code -->
+  <link rel="stylesheet" href="lib/css/zenburn.css">
 
-    <!-- Printing and PDF exports -->
-    <script>
-        var link = document.createElement('link');
-        link.rel = 'stylesheet';
-        link.type = 'text/css';
-        link.href = window.location.search.match(/print-pdf/gi) ? 'css/print/pdf.css' : 'css/print/paper.css';
-        document.getElementsByTagName('head')[0].appendChild(link);
-    </script>
+  <!-- Printing and PDF exports -->
+  <script>
+    var link = document.createElement('link');
+    link.rel = 'stylesheet';
+    link.type = 'text/css';
+    link.href = window.location.search.match(/print-pdf/gi) ? 'css/print/pdf.css' : 'css/print/paper.css';
+    document.getElementsByTagName('head')[0].appendChild(link);
+  </script>
 </head>
 <body>
 <div class="reveal">
-    <div class="slides">
+  <div class="slides">
+
+    <section>
+      <h1><img class="logo64" src="img/dependabot.png"/></h1>
+      <ul>
+        <li>Sign in to <a href="https://app.dependabot.com/auth/sign-in">Dependabot</a>
+          and install the Dependabot GitHub App</a>
+        </li>
+        <li>If any of the project dependencies are out-of-date, Dependabot opens individual pull requests to update each one.</li>
+      </ul>
+    </section>
 
 
-        <section>
-            <h1>Connection string</h1>
-            Libraries like Knex.js needs connection configuration in form of separates fields: host, user, password,
-            etc. Azure App Service sets connection configuration as connection string.
-        </section>
-        <section>
-            <h1>NPM package</h1>
-            Prepare a npm package for JavaScript and TypeScript to parse connection string. Check the quality with the
-            tools available on github platform:
-            <ul>
-                <li>Test with Travis CI <img class="logo64" src="img/TravisCI-Mascot-1.png"/></li>
-                <li>Code coverage with <img class="logo64" src="img/coveralls_logo.png"/></li>
-                <li>Automated code review with <img class="logo64" src="img/code-climate.png"/></li>
-            </ul>
-        </section>
-        <section>
-            <h1>Travis CI <img class="logo64" src="img/TravisCI-Mascot-1.png"/></h1>
-            <ul>
-                <li>Sign in to <a href="https://travis-ci.org">Travis CI</a> and
-                    <a href="https://travis-ci.org/organizations/nsc-c-park/repositories">flick your repo’s switch
-                        on</a>
-                </li>
-                <li>Add a <i>.travis.yml</i> file to the repository
-                    <pre><code>
+    <section>
+      <h1>Connection string</h1>
+      Libraries like Knex.js needs connection configuration in form of separates fields: host, user, password,
+      etc. Azure App Service sets connection configuration as connection string.
+    </section>
+
+    <section>
+      <h1>NPM package</h1>
+      Prepare a npm package for JavaScript and TypeScript to parse connection string. Check the quality with the
+      tools available on github platform:
+      <ul>
+        <li>Test with Travis CI <img class="logo64" src="img/TravisCI-Mascot-1.png"/></li>
+        <li>Code coverage with <img class="logo64" src="img/coveralls_logo.png"/></li>
+        <li>Automated code review with <img class="logo64" src="img/code-climate.png"/></li>
+        <li>Automated dependency updates with <img class="logo64" src="img/dependabot.png"/></li>
+      </ul>
+    </section>
+
+    <section>
+      <h1>Travis CI <img class="logo64" src="img/TravisCI-Mascot-1.png"/></h1>
+      <ul>
+        <li>Sign in to <a href="https://travis-ci.org">Travis CI</a> and
+          <a href="https://travis-ci.org/organizations/nsc-c-park/repositories">flick your repo’s switch
+            on</a>
+        </li>
+        <li>Add a <i>.travis.yml</i> file to the repository
+          <pre><code>
 language: node_js
 node_js:
 - stable
                         </code></pre>
-                </li>
-                <li>Add the badge to the README file <img class="logo64" src="img/build-passing.svg"/></li>
-            </ul>
-        </section>
-        <section>
-            <h1><img class="logo64" src="img/coveralls_logo.png"/> [1/2]</h1>
-            <ul>
-                <li>Sign in to <a href="https://coveralls.io">Coveralls</a> and add your
-                    <a href="https://coveralls.io/repos/new">repository</a>
-                </li>
-                <li>Add to the <i>.travis.yml</i> file
-                    <pre><code>
+        </li>
+        <li>Add the badge to the README file <img class="logo64" src="img/build-passing.svg"/></li>
+      </ul>
+    </section>
+
+    <section>
+      <h1><img class="logo64" src="img/coveralls_logo.png"/> [1/2]</h1>
+      <ul>
+        <li>Sign in to <a href="https://coveralls.io">Coveralls</a> and add your
+          <a href="https://coveralls.io/repos/new">repository</a>
+        </li>
+        <li>Add to the <i>.travis.yml</i> file
+          <pre><code>
 after_success:
 - npm run coveralls
                     </code></pre>
-                </li>
-                <li>Add new devDependencies
-                    <pre><code>
+        </li>
+        <li>Add new devDependencies
+          <pre><code>
 npm install --save-dev coveralls mocha-lcov-reporter
                     </code></pre>
-                </li>
-            </ul>
-        </section>
-        <section>
-            <h1><img class="logo64" src="img/coveralls_logo.png"/> [2/2]</h1>
-            <ul>
-                <li>Add to the <i>package.json</i> file
-                    <pre><code>
+        </li>
+      </ul>
+    </section>
+
+    <section>
+      <h1><img class="logo64" src="img/coveralls_logo.png"/> [2/2]</h1>
+      <ul>
+        <li>Add to the <i>package.json</i> file
+          <pre><code>
 "coverage": "istanbul cover _mocha",
 "coveralls": "npm run coverage -- --report lcovonly \
              && cat ./coverage/lcov.info | coveralls"
                     </code></pre>
-                </li>
-                <li>Add the badge to the README file <img class="logo64" src="img/coverage-100.svg"/></li>
-            </ul>
-        </section>
-        <section>
-            <h1><img class="logo64" src="img/code-climate.png"/></h1>
-            <ul>
-                <li>Sign in to <a href="https://codeclimate.com">Code Climate</a> and
-                    <a href="https://codeclimate.com/github/repos/new">flick your repo’s switch on</a>
-                </li>
-                <li>Add the badges to the README file <img class="logo64" src="img/maintainability.svg"/></li>
-            </ul>
-        </section>
+        </li>
+        <li>Add the badge to the README file <img class="logo64" src="img/coverage-100.svg"/></li>
+      </ul>
+    </section>
+
+    <section>
+      <h1><img class="logo64" src="img/code-climate.png"/></h1>
+      <ul>
+        <li>Sign in to <a href="https://codeclimate.com">Code Climate</a> and
+          <a href="https://codeclimate.com/github/repos/new">flick your repo’s switch on</a>
+        </li>
+        <li>Add the badges to the README file <img class="logo64" src="img/maintainability.svg"/></li>
+      </ul>
+    </section>
 
 
-        <section>
-            <h1>Bibliography</h1>
-            <ul>
-                <li>
-                    <a href="http://dsernst.com/2015/09/02/node-mocha-travis-istanbul-coveralls-unit-tests-coverage-for-your-open-source-project/">
-                        Node + Mocha + Travis + Istanbul + Coveralls: Unit tests & coverage for your open source
-                        project</a>
-                </li>
-            </ul>
-        </section>
-    </div>
+    <section>
+      <h1>Bibliography</h1>
+      <ul>
+        <li>
+          <a href="http://dsernst.com/2015/09/02/node-mocha-travis-istanbul-coveralls-unit-tests-coverage-for-your-open-source-project/">
+            Node + Mocha + Travis + Istanbul + Coveralls: Unit tests & coverage for your open source
+            project</a>
+          <a href="https://www.g2.com/categories/continuous-integration">Best Continuous Integration Software</a>
+        </li>
+      </ul>
+    </section>
+  </div>
 </div>
 
 <script src="lib/js/head.min.js"></script>
 <script src="js/reveal.js"></script>
 
 <script>
-    // More info about config & dependencies:
-    // - https://github.com/hakimel/reveal.js#configuration
-    // - https://github.com/hakimel/reveal.js#dependencies
-    Reveal.initialize({
-        dependencies: [
-            {src: 'plugin/markdown/marked.js'},
-            {src: 'plugin/markdown/markdown.js'},
-            {src: 'plugin/notes/notes.js', async: true},
-            {
-                src: 'plugin/highlight/highlight.js', async: true, callback: function () {
-                    hljs.initHighlightingOnLoad();
-                }
-            }
-        ]
-    });
+  // More info about config & dependencies:
+  // - https://github.com/hakimel/reveal.js#configuration
+  // - https://github.com/hakimel/reveal.js#dependencies
+  Reveal.initialize({
+    dependencies: [
+      {src: 'plugin/markdown/marked.js'},
+      {src: 'plugin/markdown/markdown.js'},
+      {src: 'plugin/notes/notes.js', async: true},
+      {
+        src: 'plugin/highlight/highlight.js', async: true, callback: function () {
+          hljs.initHighlightingOnLoad();
+        }
+      }
+    ]
+  });
 </script>
 </body>
 </html>
